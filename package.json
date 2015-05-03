@@ -1,5 +1,6 @@
 {
-  "name": "Grunt template",
+  "name": "Grunt_template",
+  "private": true,
   "version": "0.1.0",
   "description": "Grunt template for project",
   "main": "Gruntfile.js",
