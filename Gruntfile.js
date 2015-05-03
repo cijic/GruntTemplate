@@ -1,6 +1,7 @@
 module.exports = function(grunt) {
 
-    var subFolder = 'release/';
+    var assetsFolder = 'assets/';
+    var releaseFolder = 'release/';
 
     // 1. Вся настройка находится здесь
     grunt.initConfig({
@@ -9,17 +10,17 @@ module.exports = function(grunt) {
         concat: {
             dist: {
                 src: [
-                    'js/libs/*.js',
-                    'js/dev/script.js'
+                    assetsFolder + 'js/libs/*.js',
+                    assetsFolder + 'js/dev/script.js'
                 ],
-                dest: subFolder + 'js/production.min.js',
+                dest: releaseFolder + 'js/production.min.js',
             }
         },
 
         uglify: {
             build: {
-                src:  subFolder + 'js/production.min.js',
-                dest: subFolder + 'js/production.min.js'
+                src:  releaseFolder + 'js/production.min.js',
+                dest: releaseFolder + 'js/production.min.js'
             }
         },
 
@@ -27,9 +28,9 @@ module.exports = function(grunt) {
             dynamic: {
                 files: [{
                     expand: true,
-                    cwd: 'img/',
+                    cwd: assetsFolder + 'img/',
                     src: ['**/*.{png,jpg,gif,ico}'],
-                    dest: subFolder + 'img/'
+                    dest: releaseFolder + 'img/'
                 }]
             }
         },
@@ -38,9 +39,9 @@ module.exports = function(grunt) {
             target: {
                 files: [{
                     expand: true,
-                    cwd: 'css',
+                    cwd: assetsFolder + 'css',
                     src: ['*.css', '!*.min.css'],
-                    dest: subFolder + 'css',
+                    dest: releaseFolder + 'css',
                     ext: '.min.css'
                 }]
             }
